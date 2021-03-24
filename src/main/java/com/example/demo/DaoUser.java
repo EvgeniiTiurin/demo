@@ -16,13 +16,13 @@ public class DaoUser {
     private JdbcTemplate jdbcTemplate;
 
     public List<User> getUserById(Long id){
-        String getSql = "select * from users where id = " + id;
+        String getSql = "select * from ttable where id = " + id;
 
         return jdbcTemplate.query(getSql, new RowMapper<User>() {
             @Override
             public User mapRow(ResultSet resultSet, int i) throws SQLException {
                 User user = new User();
-                user.setName(resultSet.getString("NAME"));
+                user.setName(resultSet.getString("VALUE"));
                 user.setId(resultSet.getLong("ID"));
                 return user;
             }
